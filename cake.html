@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3D Cake Viewer</title>
+    <!-- This script allows the browser to understand 3D models -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap');
+
+        .birthday-text {
+        position: absolute;
+        top: 5%; /* Adjust this to move it higher or lower */
+        width: 100%;
+        text-align: center;
+        z-index: 10; /* This ensures it stays in front of the cake */
+        
+        /* Styling */
+        font-family: 'Syncopate', sans-serif; /* Futuristic space font */
+        font-size: 3.5rem;
+        color: white;
+        letter-spacing: 5px;
+        
+        /* The "Fire" Glow Effect */
+        text-shadow: 0 0 10px #fff, 
+                    0 0 20px #ff00de, 
+                    0 0 30px #ff00de;
+        
+        pointer-events: none; /* This lets you still click/rotate the cake through the text */
+        }
+
+        /* Make it look good on your Samsung A36 too */
+        @media (max-width: 600px) {
+        .birthday-text {
+            font-size: 2rem;
+            top: 15%;
+        }
+}
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden; /* Stops the page from scrolling */
+                    }
+
+        model-viewer {
+            width: 100%;
+            height: 100vh; /* This forces the cake to fill the screen */
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="birthday-text">HAPPY BIRTHDAY NAHYAN</h1>
+
+    <model-viewer 
+        src="cake.glb" 
+        alt="My 3D Cake" 
+        auto-rotate 
+        camera-controls
+        camera-orbit="0deg 75deg 105%"
+        field-of-view="30deg"
+        shadow-intensity="2"
+        environment-image="neutral">
+        
+    </model-viewer>
+
+</body>
+</html>
